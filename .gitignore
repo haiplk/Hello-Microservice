@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/UserManagement/.vs
+/UserManagement/UserManagement/bin/Debug/net8.0
+/UserManagement/UserManagement/obj/Container
+/UserManagement/UserManagement/obj/Debug/net8.0
+/UserManagement/UserManagement/obj
+/UserManagement/UserManagement/UserManagement.csproj.user
