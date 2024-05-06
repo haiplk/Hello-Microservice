@@ -18,7 +18,7 @@ service UserServiceGrpc {
           get: "/v1/users"
         };
   }
-  rpc AddUser(AddUserRequest) returns (GetUserRequest) {
+  rpc AddUser(AddUserRequest) returns (UserResponse) {
       option (google.api.http) = {
           post: "/v1/users"
         };

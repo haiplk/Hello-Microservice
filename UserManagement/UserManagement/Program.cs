@@ -1,5 +1,11 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using UserManagement.Database.DbContexts;
+using UserManagement.Database.Interfaces;
+using UserManagement.Database.Repositories;
+using UserManagement.Protos;
 using UserManagement.Services;
+using UserManagement.Services.Impls;
 
 namespace UserManagement
 {
@@ -28,6 +34,13 @@ namespace UserManagement
             });
 
 
+            builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<IUserRepository, UserRepository>();
+
+            // Use master-slave db but point to 1 db for example
+            builder.Services.AddDbContext<UserMasterDbContext>(opt => opt.UseInMemoryDatabase("UserDb_Master"));
+            builder.Services.AddDbContext<UserSlaveDbContext>(opt => opt.UseInMemoryDatabase("UserDb_Master"));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -42,7 +55,7 @@ namespace UserManagement
             }
 
             app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
-            app.MapGrpcService<UserService>();
+            app.MapGrpcService<UserGrpcService>();
 
             app.Run();
         }

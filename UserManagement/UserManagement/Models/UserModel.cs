@@ -1,7 +1,7 @@
 ﻿
 namespace UserManagement.Models
 {
-    public class UserMode
+    public class UserModel
     {
         public Guid Id { get; set; }
 
@@ -9,6 +9,6 @@ namespace UserManagement.Models
 
         public string? Email { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
     }
 }
