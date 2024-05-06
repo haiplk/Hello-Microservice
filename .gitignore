@@ -15,3 +15,5 @@
 /Practical.Microservice/Services.Product/bin/Debug/net8.0
 /Practical.Microservice/Services.Product/obj/Container
 /Practical.Microservice/Services.Product/obj
+/Practical.Microservice/APIGateway/bin/Debug/net8.0
+/Practical.Microservice/APIGateway/obj
