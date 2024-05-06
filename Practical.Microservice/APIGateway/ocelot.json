@@ -1,0 +1,16 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/v1/products",
+      "UpstreamPathTemplate": "/v1/products",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "Services.Product",
+          "Port": 32773
+        }
+      ]
+    }
+  ]
+}
