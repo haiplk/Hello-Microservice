@@ -1,6 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using UserManagement.Database.Models;
+using Services.Users.Database.Entities;
 using UserManagement.Services;
 
 namespace UserManagement.Database.DbContexts

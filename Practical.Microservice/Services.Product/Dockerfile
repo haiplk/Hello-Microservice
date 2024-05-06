@@ -9,17 +9,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Services.Users/Services.Users.csproj", "Services.Users/"]
-RUN dotnet restore "./Services.Users/Services.Users.csproj"
+COPY ["Services.Product/Services.Product.csproj", "Services.Product/"]
+RUN dotnet restore "./Services.Product/Services.Product.csproj"
 COPY . .
-WORKDIR "/src/Services.Users"
-RUN dotnet build "./Services.Users.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Services.Product"
+RUN dotnet build "./Services.Product.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Services.Users.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Services.Product.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Services.Users.dll"]
+ENTRYPOINT ["dotnet", "Services.Product.dll"]

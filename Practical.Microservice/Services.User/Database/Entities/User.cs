@@ -1,4 +1,4 @@
-﻿namespace UserManagement.Database.Models
+﻿namespace Services.Users.Database.Entities
 {
     public class User
     {

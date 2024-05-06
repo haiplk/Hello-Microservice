@@ -1,4 +1,4 @@
-﻿using UserManagement.Database.Models;
+﻿using Services.Users.Database.Entities;
 using UserManagement.Models;
 
 namespace UserManagement.Database.Interfaces

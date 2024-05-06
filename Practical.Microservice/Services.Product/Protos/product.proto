@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option csharp_namespace = "Services.Product";
+
+package product;
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+// The greeting service definition.
+service ProductServiceGrpc {
+	  rpc GetAll(FilterProductRequest) returns (ListProductsResponse) {
+		  option (google.api.http) = {
+			  get: "/v1/products"
+			};
+	  }
+	  rpc AddProduct(UpsertProductRequest) returns (ProductResponse) {
+		  option (google.api.http) = {
+			  post: "/v1/products"
+			};
+	  }
+}
+message UpsertProductRequest {
+	string name = 2;
+	string description = 3;
+	double price = 4;
+	google.protobuf.Timestamp createdDated = 5;
+	string createdUser = 6;
+}
+
+message FilterProductRequest {}
+
+message ProductResponse {
+	string id = 1;
+	string name = 2;
+	string description = 3;
+	double price = 4;
+	google.protobuf.Timestamp createdDated = 5;
+	UserInfo createdUser = 6;
+}
+
+message ListProductsResponse {
+	repeated ProductResponse products = 1;
+}
+
+message UserInfo {
+	string id = 1;
+	string name = 2;
+}

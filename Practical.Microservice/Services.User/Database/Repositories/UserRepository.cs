@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Services.Users.Database.Entities;
 using UserManagement.Database.DbContexts;
 using UserManagement.Database.Interfaces;
-using UserManagement.Database.Models;
 using UserManagement.Models;
 
 namespace UserManagement.Database.Repositories
